@@ -1,0 +1,258 @@
+:root {
+  --ink: #12202b;
+  --muted: #4a6270;
+  --paper: #f4efe6;
+  --card: rgba(255, 251, 245, 0.82);
+  --line: rgba(18, 32, 43, 0.12);
+  --accent: #c45c26;
+  --accent-ink: #fff8f2;
+  --shadow: 0 24px 60px rgba(28, 48, 64, 0.18);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background: #8fb8c9;
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #fff4d6 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #7aa8c4 0%, transparent 50%),
+    linear-gradient(180deg, #9ec8d6 0%, #d7c4a3 58%, #e8d7b8 100%);
+  z-index: -1;
+}
+
+.app {
+  width: min(640px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.header h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0;
+  line-height: 0.9;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.lede {
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+input[type="search"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 14px 18px;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+input[type="search"]:focus {
+  border-color: var(--ink);
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+}
+
+button.ghost {
+  background: rgba(255, 251, 245, 0.7);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.status {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.status.error {
+  color: #8b2e1a;
+}
+
+.result {
+  margin-top: 28px;
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.now {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.now h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.when,
+.condition {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.temp {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 4.2rem;
+  line-height: 0.85;
+  margin: 0;
+  letter-spacing: -0.05em;
+}
+
+.temp-block {
+  text-align: right;
+}
+
+.stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 0;
+  margin: 28px 0 8px;
+}
+
+.stats li {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.stats span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.stats strong {
+  font-size: 1.05rem;
+}
+
+.forecast-title {
+  margin: 24px 0 12px;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.forecast {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.forecast li {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.forecast .day {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.forecast .hi {
+  display: block;
+  font-weight: 600;
+}
+
+.forecast .lo {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .search {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  input[type="search"] {
+    grid-column: 1 / -1;
+  }
+
+  .stats,
+  .forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .temp {
+    font-size: 3.2rem;
+  }
+}
